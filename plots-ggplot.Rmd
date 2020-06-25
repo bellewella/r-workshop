@@ -8,3 +8,35 @@ output: html_document
 #Plots with ggplot2 
 
 We are going to make plots in R and its going to be amazing. 
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+```
+```{r}
+ca_np <-  read.csv(here("data", "ca_np.csv"))
+```
+
+```{r}
+ci_np <- read_excel(here("data", "ci_np.xlsx"))
+```
+
+```{r}
+gg_base <- ggplot(data = ci_np, aes(x = year, y = visitors)) 
+
+gg_base +
+  geom_point(
+    aes(size = visitors,
+        color = visitors),
+    alpha = 0.5
+  )
+```
+
+```{r}
+gg_base + 
+  geom_col(aes(fill = visitors))
+```
+
+
+
