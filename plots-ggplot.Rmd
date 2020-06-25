@@ -30,12 +30,29 @@ gg_base +
     aes(size = visitors,
         color = visitors),
     alpha = 0.5
-  )
+  ) +
+  theme_minimal()
 ```
 
 ```{r}
 gg_base + 
   geom_col(aes(fill = visitors))
+```
+
+
+```{r}
+gg_base +
+  geom_line(linetype = "dotted") +
+  theme_bw() +
+  labs(
+    x = "Year", 
+    y = "Annual park Visitors", 
+    title = "Channel Islands NP Visitation", 
+    subtitle = "(1963 - 2016)"
+  ) +
+  geom_point(color = "orange", 
+             aes(size = year), 
+             alpha = 0.5)
 ```
 
 
